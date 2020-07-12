@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import ConfigService from './config/config.service';
 import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions';
 import ConfigModule from './config/config.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -31,7 +32,7 @@ import ConfigModule from './config/config.module';
       }),
       inject: [ConfigService],
     }),
-
+  UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
