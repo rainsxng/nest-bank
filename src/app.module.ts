@@ -6,6 +6,7 @@ import ConfigService from './config/config.service';
 import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions';
 import ConfigModule from './config/config.module';
 import { UserModule } from './user/user.module';
+import { CurrencyModule } from './currency/currency.module';
 
 @Module({
   imports: [
@@ -32,7 +33,8 @@ import { UserModule } from './user/user.module';
       }),
       inject: [ConfigService],
     }),
-  UserModule,
+    UserModule,
+    CurrencyModule,
   ],
   controllers: [AppController],
   providers: [AppService],
