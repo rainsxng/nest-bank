@@ -27,11 +27,11 @@ export class createCurrencyTable1594552066497 implements MigrationInterface {
                 },
                 {
                     name: "created_at",
-                    type: "datetime",
+                    type: "timestamp without time zone",
                 },
                 {
                     name: "updated_at",
-                    type: "datetime",
+                    type: "timestamp without time zone",
                 },
             ]
         }));

@@ -21,9 +21,9 @@ export default class Currency implements CurrencyEntity {
   @Column({ type: 'varchar' })
   code: string;
 
-  @Column({ type: 'datetime' })
+  @Column({ type: 'timestamp without time zone' })
   created_at: string;
 
-  @Column({ type: 'datetime' })
+  @Column({ type: 'timestamp without time zone' })
   updated_at: string;
 }

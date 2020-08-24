@@ -3,18 +3,17 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import ConfigService from './config/config.service';
-import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions';
 import ConfigModule from './config/config.module';
 import { UserModule } from './user/user.module';
 import { CurrencyModule } from './currency/currency.module';
+import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
 
 @Module({
   imports: [
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
-      useFactory: async (configService: ConfigService): Promise<MysqlConnectionOptions> => ({
-        type: 'mysql',
-        timezone: 'utc',
+      useFactory: async (configService: ConfigService): Promise<PostgresConnectionOptions> => ({
+        type: 'postgres',
         host: configService.get('DB_HOST'),
         port: Number(configService.get('DB_PORT')),
         username: configService.get('DB_USER'),
