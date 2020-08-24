@@ -3,7 +3,7 @@ import ConfigService from './config/config.service';
 
 const configService = new ConfigService(`.env`);
 const config: ConnectionOptions = {
-  type: 'mysql',
+  type: 'postgres',
   host: configService.get('DB_HOST'),
   port: Number(configService.get('DB_PORT')),
   username: configService.get('DB_USER'),

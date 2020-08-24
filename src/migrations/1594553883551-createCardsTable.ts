@@ -45,11 +45,11 @@ export class createCardsTable1594553883551 implements MigrationInterface {
                 },
                 {
                     name: "created_at",
-                    type: "datetime",
+                    type: "timestamp without time zone",
                 },
                 {
                     name: "updated_at",
-                    type: "datetime",
+                    type: "timestamp without time zone",
                 },
             ],
             foreignKeys: [
@@ -70,6 +70,7 @@ export class createCardsTable1594553883551 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.dropTable('cards');
     }
 
 }
