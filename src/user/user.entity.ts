@@ -1,4 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { ManyToOne, OneToMany } from 'typeorm/index';
+import Card from '../card/card.entity';
 
 interface UserEntity {
   id: number,
@@ -34,4 +36,7 @@ export default class User implements UserEntity {
 
   @Column({ type: 'timestamp without time zone' })
   updated_at: string;
+
+  @OneToMany(() => Card, cards => cards.user)
+  cards: Card[];
 }

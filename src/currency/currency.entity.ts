@@ -1,4 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { OneToOne } from 'typeorm/index';
+import Card from '../card/card.entity';
 
 
 interface CurrencyEntity {
@@ -26,4 +28,7 @@ export default class Currency implements CurrencyEntity {
 
   @Column({ type: 'timestamp without time zone' })
   updated_at: string;
+
+  @OneToOne(() => Card, card => card.currency)
+  card: Card;
 }

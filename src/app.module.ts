@@ -7,6 +7,7 @@ import ConfigModule from './config/config.module';
 import { UserModule } from './user/user.module';
 import { CurrencyModule } from './currency/currency.module';
 import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
+import { CardModule } from './card/card.module';
 
 @Module({
   imports: [
@@ -19,7 +20,7 @@ import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConne
         username: configService.get('DB_USER'),
         password: configService.get('DB_PASS'),
         database: configService.get('DB_NAME'),
-        synchronize: false,
+        synchronize: true,
         entities: [`${__dirname}/**/*.entity{.ts,.js}`],
         // logging: configService.get('NODE_ENV') !== 'production' ? ['query', 'error'] : undefined,
         migrationsRun: true,
@@ -34,6 +35,7 @@ import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConne
     }),
     UserModule,
     CurrencyModule,
+    CardModule,
   ],
   controllers: [AppController],
   providers: [AppService],
