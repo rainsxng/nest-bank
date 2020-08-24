@@ -3,10 +3,15 @@ import { Column, ManyToOne, OneToOne } from 'typeorm/index';
 import { PrimaryGeneratedColumnType } from 'typeorm/driver/types/ColumnTypes';
 import User from '../user/user.entity';
 import Currency from '../currency/currency.entity';
+import AddCardPayload from './dto/card.dto';
 
 
 @Entity('cards')
 export default class Card {
+
+  constructor(payload?: AddCardPayload) {
+    Object.assign(this, payload);
+  }
 
   @Column({ type: 'int', unsigned: true, primary: true })
   id: PrimaryGeneratedColumnType;
