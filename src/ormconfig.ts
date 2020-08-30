@@ -10,7 +10,7 @@ const config: ConnectionOptions = {
   password: configService.get('DB_PASS'),
   database: configService.get('DB_NAME'),
   entities: [`${__dirname}/**/*.entity{.ts,.js}`],
-  synchronize: false,
+  synchronize: true,
   migrationsRun: true,
   logging: true,
   logger: 'file',

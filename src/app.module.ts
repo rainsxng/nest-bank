@@ -8,6 +8,7 @@ import { UserModule } from './user/user.module';
 import { CurrencyModule } from './currency/currency.module';
 import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
 import { CardModule } from './card/card.module';
+import { DepositModule } from './deposit/deposit.module';
 
 @Module({
   imports: [
@@ -36,6 +37,7 @@ import { CardModule } from './card/card.module';
     UserModule,
     CurrencyModule,
     CardModule,
+    DepositModule,
   ],
   controllers: [AppController],
   providers: [AppService],
